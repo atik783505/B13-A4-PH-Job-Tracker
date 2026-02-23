@@ -42,12 +42,12 @@
     <main class="w-10/12 mx-auto">
         <h2 class="text-[20px] font-semibold text-[#002C5C] pb-6">Available Jobs</h2>
         <div class=" flex gap-3">
-            <button  onclick='toggle("all-btn")' id="all-btn" class="btn btn-toggle btn-primary px-8">All</button>
+            <button  onclick="toggle('all-btn')" id="all-btn" class="btn btn-toggle btn-primary px-8">All</button>
             <button onclick="toggle('interview-btn')" id="interview-btn" class="btn btn-toggle ">Interview</button>
             <button onclick="toggle('rejected-btn')" id="rejected-btn" class="btn btn-toggle ">Rejected</button>
         </div>
         
-        <section id="filtered-section">
+        <section id="filtered-section" class="hidden pt-4 space-y-6">
 
         </section>
 
@@ -65,7 +65,7 @@
                         •
                         $130,000 - $175,000</p>
                     <p class="job-status btn text-[#002C5C] font-medium leading-5 bg-[#EEF4FF]">Not Applied</p>
-                    <p>Build cross-platform mobile applications using React Native. Work on products used by millions of
+                    <p class="job-experience" >Build cross-platform mobile applications using React Native. Work on products used by millions of
                         users worldwide.</p>
                     <div class="flex gap-2">
                         <button class="btn btn-interview border-green-500 text-green-500">INTERVIEW</button>
@@ -89,7 +89,7 @@
                         •
                         $80,000 - $120,000</p>
                     <p class="job-status btn text-[#002C5C] font-medium leading-5 bg-[#EEF4FF]">Not Applied</p>
-                    <p>Create stunning web experiences for high-profile clients. Must have portfolio and experience with
+                    <p class="job-experience" >Create stunning web experiences for high-profile clients. Must have portfolio and experience with
                         modern web design trends.</p>
                     <div class="flex gap-2">
                         <button class="btn btn-interview border-green-500 text-green-500">INTERVIEW</button>
@@ -113,7 +113,7 @@
                         •
                         $125,000 - $165,000</p>
                     <p class="job-status btn text-[#002C5C] font-medium leading-5 bg-[#EEF4FF]">Not Applied</p>
-                    <p>Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong
+                    <p class="job-experience" >Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong
                         analytical thinking.
                     </p>
                     <div class="flex gap-2">
@@ -138,7 +138,7 @@
                         •
                         $140,000 - $190,000</p>
                     <p class="job-status btn text-[#002C5C] font-medium leading-5 bg-[#EEF4FF]">Not Applied</p>
-                    <p>Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps
+                    <p class="job-experience" >Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps
                         practices and cloud infrastructure.</p>
                     <div class="flex gap-2">
                         <button class="btn btn-interview border-green-500 text-green-500">INTERVIEW</button>
@@ -162,7 +162,7 @@
                         •
                         $110,000 - $150,000</p>
                     <p class="job-status btn text-[#002C5C] font-medium leading-5 bg-[#EEF4FF]">Not Applied</p>
-                    <p>Create beautiful and functional user interfaces for our suite of products. Strong design skills
+                    <p class="job-experience" >Create beautiful and functional user interfaces for our suite of products. Strong design skills
                         and frontend development expertise required.</p>
                     <div class="flex gap-2">
                         <button class="btn btn-interview border-green-500 text-green-500">INTERVIEW</button>
@@ -186,7 +186,7 @@
                         •
                         $130,000 - $170,00</p>
                     <p class="job-status btn text-[#002C5C] font-medium leading-5 bg-[#EEF4FF]">Not Applied</p>
-                    <p>Build enterprise applications with JavaScript and modern frameworks. We offer competitive
+                    <p class="job-experience" >Build enterprise applications with JavaScript and modern frameworks. We offer competitive
                         compensation, health insurance, and professional development opportunities.</p>
                     <div class="flex gap-2">
                         <button class="btn btn-interview border-green-500 text-green-500">INTERVIEW</button>
@@ -210,7 +210,7 @@
                         •
                         $120,000 - $160,000</p>
                     <p class="job-status btn text-[#002C5C] font-medium leading-5 bg-[#EEF4FF]">Not Applied</p>
-                    <p>Join our fast-growing startup and work on our core platform. Experience with Node.js and React
+                    <p class="job-experience" >Join our fast-growing startup and work on our core platform. Experience with Node.js and React
                         required. Great benefits and equity package included.</p>
                     <div class="flex gap-2">
                         <button class="btn btn-interview border-green-500 text-green-500">INTERVIEW</button>
@@ -234,7 +234,7 @@
                         •
                         $130,000 - $175,000</p>
                     <p class="job-status btn text-[#002C5C] font-medium leading-5 bg-[#EEF4FF]">Not Applied</p>
-                    <p>We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
+                    <p class="job-experience" >We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
                     <div class="flex gap-2">
                         <button class="btn btn-interview border-green-500 text-green-500">INTERVIEW</button>
                         <button class="btn btn-rejected border-red-600 text-red-600">REJECTED</button>
