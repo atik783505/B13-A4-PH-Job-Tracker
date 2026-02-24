@@ -102,7 +102,7 @@ maincontainer.addEventListener('click', function (event) {
         const jobExperience = parentNode.querySelector('.job-experience').innerText;
         const jobStatus = parentNode.querySelector('.job-status').innerText;
         parentNode.querySelector('.job-status').innerText = 'INTERVIEWED'
-        updateAllCardStatus(companies, 'INTERVIEWED')
+   
 
         parentNode.querySelector('.job-status').classList.remove('border-red-500')
         parentNode.querySelector('.job-status').classList.remove('text-red-500')
@@ -145,7 +145,7 @@ maincontainer.addEventListener('click', function (event) {
         const jobExperience = parentNode.querySelector('.job-experience').innerText;
         const jobStatus = parentNode.querySelector('.job-status').innerText;
         parentNode.querySelector('.job-status').innerText = 'REJECTED';
-        updateAllCardStatus(companies, 'REJECTED')
+        
 
         parentNode.querySelector('.job-status').classList.remove('border-green-500')
         parentNode.querySelector('.job-status').classList.remove('text-green-500')
@@ -273,15 +273,6 @@ function renderReject() {
     }
 }
 
-function updateAllCardStatus(companyName, status) {
-    const allJobCards = filteredSection.querySelectorAll('.cards'); // ⭐ FIX
 
-    allJobCards.forEach(card => {
-        const name = card.querySelector('.companies').innerText.trim();
-        if (name === companyName) {
-            card.querySelector('.job-status').innerText = status;
-        }
-    });
-}
 
 
