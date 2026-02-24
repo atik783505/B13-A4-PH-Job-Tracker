@@ -71,6 +71,7 @@ function toggle(id) {
         if (allcard.children.length == 0) {
             emptyJobs.classList.remove('hidden')
         }
+        emptyJobs.classList.add('hidden')
 
         totalJob.classList.remove('hidden');
         totalInterviewCountList.classList.add('hidden')
