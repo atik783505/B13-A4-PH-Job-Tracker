@@ -1,6 +1,6 @@
 let interveiwList = [];
 let rejectedList = [];
-currentStatus = 'all'
+let currentStatus = 'all'
 
 const total = document.getElementById('total-count');
 const interveiw = document.getElementById('interview-count');
@@ -68,6 +68,9 @@ function toggle(id) {
     } else if (id == 'all-btn') {
         allcard.classList.remove('hidden');
         filteredSection.classList.add('hidden');
+        if(allcard.children.length == 0){
+            emptyJobs.classList.remove('hidden')
+        }
 
         totalJob.classList.remove('hidden');
         totalInterviewCountList.classList.add('hidden')
@@ -85,6 +88,25 @@ function toggle(id) {
 
 }
 
+function updateMainCardUI(companyName, status) {
+    const mainCards = allcard.querySelectorAll('.cards');
+    mainCards.forEach(card => {
+        if (card.querySelector('.companies').innerText === companyName) {
+            const statusBtn = card.querySelector('.job-status');
+            statusBtn.innerText = status;
+
+            // ডিজাইন আপডেট
+            if (status === 'INTERVIEWED') {
+                card.className = "cards bg-white rounded-lg p-6 flex justify-between border border-green-400 border-l-8";
+                statusBtn.className = "job-status btn text-green-500 font-medium leading-5 bg-green-200 border-green-500";
+            } else if (status === 'REJECTED') {
+                card.className = "cards bg-white rounded-lg p-6 flex justify-between border border-red-400 border-l-8";
+                statusBtn.className = "job-status btn text-red-600 font-medium leading-5 bg-red-200 border-red-600";
+            }
+        }
+    });
+}
+
 maincontainer.addEventListener('click', function (event) {
     if (event.target.classList.contains('btn-interview')) {
         const parentNode = event.target.parentNode.parentNode.parentNode;
@@ -97,6 +119,9 @@ maincontainer.addEventListener('click', function (event) {
         const jobExperience = parentNode.querySelector('.job-experience').innerText;
         const jobStatus = parentNode.querySelector('.job-status').innerText;
         parentNode.querySelector('.job-status').innerText = 'INTERVIEWED'
+        updateMainCardUI(companies, 'INTERVIEWED');
+
+
         parentNode.querySelector('.job-status').classList.remove('border-red-500')
         parentNode.querySelector('.job-status').classList.remove('text-red-500')
         parentNode.querySelector('.job-status').classList.remove('bg-red-200')
@@ -138,6 +163,7 @@ maincontainer.addEventListener('click', function (event) {
         const jobExperience = parentNode.querySelector('.job-experience').innerText;
         const jobStatus = parentNode.querySelector('.job-status').innerText;
         parentNode.querySelector('.job-status').innerText = 'REJECTED';
+        updateMainCardUI(companies, 'REJECTED');
 
         parentNode.querySelector('.job-status').classList.remove('border-green-500')
         parentNode.querySelector('.job-status').classList.remove('text-green-500')
@@ -171,22 +197,20 @@ maincontainer.addEventListener('click', function (event) {
         const card = event.target.closest('.cards');
         const jobCompany = card.querySelector('.companies').innerText;
 
-        // interview list থেকে remove
         interveiwList = interveiwList.filter(
             item => item.companies !== jobCompany
         );
 
-        // rejected list থেকে remove
+
         rejectedList = rejectedList.filter(
             item => item.companies !== jobCompany
         );
 
-        // main all cards section থেকে delete
+
         card.remove();
 
         calculateCount();
 
-        // যদি filtered view তে থাকো তাহলে আবার render করো
         if (currentStatus === 'interview-btn') {
             renderInterveiw();
         } else if (currentStatus === 'rejected-btn') {
@@ -236,7 +260,12 @@ function renderInterveiw() {
 
 function renderReject() {
     filteredSection.innerHTML = '';
-
+     if (rejectedList.length == 0) {
+        emptyJobs.classList.remove('hidden')
+        return;
+    } else {
+        emptyJobs.classList.add('hidden')
+    }
     for (let reject of rejectedList) {
         let div = document.createElement('div');
         div.className = "cards  bg-white rounded-lg p-6 flex justify-between border border-red-400 border-l-8"
