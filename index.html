@@ -22,8 +22,8 @@
 
 <body class="bg-[#F8FAFC]">
     <header class="w-10/12 mx-auto pt-[60px]">
-        <h2 class="text-[32px] font-bold leading-[30px] text-[#002C5C] mb-5">Job Application Tracker</h2>
-        <div class="grid grid-cols-3 gap-4 justify-between">
+            <h2 class="text-[32px] font-bold leading-[30px] text-[#002C5C] mb-5">Job Application Tracker</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center justify-between">
             <div class="rounded-lg p-5 w-[360px]   bg-[#F1F2F4]">
                 <p class="text-[14px] text-[#323B49] ">Total</p>
                 <p class="text-[24px] text-[#002B70] font-bold" id="total-count">0</p>
@@ -40,7 +40,12 @@
         <hr class="text-[#E6E7E9] my-[30px]">
     </header>
     <main class="w-10/12 mx-auto">
-        <h2 class="text-[20px] font-semibold text-[#002C5C] pb-6">Available Jobs</h2>
+        <div class="flex justify-between">
+            <h2 class="text-[20px] font-semibold text-[#002C5C] pb-6">Available Jobs</h2>
+            <p id="total-job"><span class="total-job-count">0  </span>Jobs</p>
+            <p id="total-interview-count-list" class="hidden"><span id="total-interview-count">0 </span>Out of  <span class="total-job-count">0  </span>Jobs</p>
+            <p id="total-reject-count-list" class="hidden"><span id="total-reject-count">0 </span>Out of  <span class="total-job-count">0  </span>Jobs</p>
+        </div>
         <div class=" flex gap-3">
             <button  onclick="toggle('all-btn')" id="all-btn" class="btn btn-toggle btn-primary px-8">All</button>
             <button onclick="toggle('interview-btn')" id="interview-btn" class="btn btn-toggle ">Interview</button>
@@ -68,7 +73,7 @@
                     <p class="job-experience" >Build cross-platform mobile applications using React Native. Work on products used by millions of
                         users worldwide.</p>
                     <div class="flex gap-2">
-                        <button class="btn btn-interview border-green-500 text-green-500">INTERVIEW</button>
+                        <button class="btn hover:bg-green-700 btn-interview border-green-500 text-green-500">INTERVIEW</button>
                         <button class="btn btn-rejected border-red-600 text-red-600">REJECTED</button>
                     </div>
                 </div>
@@ -89,7 +94,7 @@
                         •
                         $80,000 - $120,000</p>
                     <p class="job-status btn text-[#002C5C] font-medium leading-5 bg-[#EEF4FF]">Not Applied</p>
-                    <p class="job-experience" >Create stunning web experiences for high-profile clients. Must have portfolio and experience with
+                    <p class="job-experience">Create stunning web experiences for high-profile clients. Must have portfolio and experience with
                         modern web design trends.</p>
                     <div class="flex gap-2">
                         <button class="btn btn-interview border-green-500 text-green-500">INTERVIEW</button>
