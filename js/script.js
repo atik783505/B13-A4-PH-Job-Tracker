@@ -53,6 +53,10 @@ maincontainer.addEventListener('click', function (event) {
         const jobStatus = parentNode.querySelector('.job-status').innerText;
         const jobExperience = parentNode.querySelector('.job-experience').innerText;
         parentNode.querySelector('.job-status').innerText = 'INTERVIEWED'
+        parentNode.querySelector('.job-status').classList.add('border-green-500')
+        parentNode.querySelector('.job-status').classList.add('text-green-500')
+    
+        
 
         const cardInfo = {
             companies,
@@ -67,7 +71,9 @@ maincontainer.addEventListener('click', function (event) {
             interveiwList.push(cardInfo);
         }
         renderInterveiw()
+
     }
+
 
 })
 
@@ -84,7 +90,7 @@ function renderInterveiw() {
                         <p class="job-type text-[#64748B] leading-[22px]">${interveiws.jobType}</p>
                     </div>
                     <p class="job-info text-[#64748B] text-[14px] leading-5">${interveiws.jobInfo}</p>
-                    <p class="job-status btn text-[#002C5C] font-medium leading-5 bg-[#EEF4FF]">${interveiws.jobStatus}</p>
+                    <p class="job-status btn border-green-500 text-green-500 font-medium leading-5 bg-[#EEF4FF]">${interveiws.jobStatus}</p>
                     <p>${interveiws.jobExperience}</p>
                     <div class="flex gap-2">
                         <button class="btn btn-interview border-green-500 text-green-500">INTERVIEW</button>
@@ -107,7 +113,7 @@ maincontainer.addEventListener('click', function (event) {
         const jobInfo = parentNode.querySelector('.job-info').innerText;
         const jobStatus = parentNode.querySelector('.job-status').innerText;
         const jobExperience = parentNode.querySelector('.job-experience').innerText;
-        parentNode.querySelector('.job-status').innerText = 'INTERVIEWED'
+        parentNode.querySelector('.job-status').innerText = 'REJECTED'
 
         const cardInfo = {
             companies,
@@ -123,6 +129,7 @@ maincontainer.addEventListener('click', function (event) {
         }
         renderReject()
     }
+
 
 })
 
