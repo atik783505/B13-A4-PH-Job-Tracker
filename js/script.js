@@ -274,12 +274,14 @@ function renderReject() {
 }
 
 function updateAllCardStatus(companyName, status) {
-    const allJobCards = allcard.querySelectorAll('.cards');
+    const allJobCards = filteredSection.querySelectorAll('.cards'); // ⭐ FIX
 
     allJobCards.forEach(card => {
-        const name = card.querySelector('.companies').innerText;
+        const name = card.querySelector('.companies').innerText.trim();
         if (name === companyName) {
             card.querySelector('.job-status').innerText = status;
         }
     });
 }
+
+
