@@ -68,7 +68,7 @@ function toggle(id) {
     } else if (id == 'all-btn') {
         allcard.classList.remove('hidden');
         filteredSection.classList.add('hidden');
-        if(allcard.children.length == 0){
+        if (allcard.children.length == 0) {
             emptyJobs.classList.remove('hidden')
         }
 
@@ -88,24 +88,6 @@ function toggle(id) {
 
 }
 
-function updateMainCardUI(companyName, status) {
-    const mainCards = allcard.querySelectorAll('.cards');
-    mainCards.forEach(card => {
-        if (card.querySelector('.companies').innerText === companyName) {
-            const statusBtn = card.querySelector('.job-status');
-            statusBtn.innerText = status;
-
-            // ডিজাইন আপডেট
-            if (status === 'INTERVIEWED') {
-                card.className = "cards bg-white rounded-lg p-6 flex justify-between border border-green-400 border-l-8";
-                statusBtn.className = "job-status btn text-green-500 font-medium leading-5 bg-green-200 border-green-500";
-            } else if (status === 'REJECTED') {
-                card.className = "cards bg-white rounded-lg p-6 flex justify-between border border-red-400 border-l-8";
-                statusBtn.className = "job-status btn text-red-600 font-medium leading-5 bg-red-200 border-red-600";
-            }
-        }
-    });
-}
 
 maincontainer.addEventListener('click', function (event) {
     if (event.target.classList.contains('btn-interview')) {
@@ -119,8 +101,7 @@ maincontainer.addEventListener('click', function (event) {
         const jobExperience = parentNode.querySelector('.job-experience').innerText;
         const jobStatus = parentNode.querySelector('.job-status').innerText;
         parentNode.querySelector('.job-status').innerText = 'INTERVIEWED'
-        updateMainCardUI(companies, 'INTERVIEWED');
-
+        updateAllCardStatus(companies, 'INTERVIEWED')
 
         parentNode.querySelector('.job-status').classList.remove('border-red-500')
         parentNode.querySelector('.job-status').classList.remove('text-red-500')
@@ -163,7 +144,7 @@ maincontainer.addEventListener('click', function (event) {
         const jobExperience = parentNode.querySelector('.job-experience').innerText;
         const jobStatus = parentNode.querySelector('.job-status').innerText;
         parentNode.querySelector('.job-status').innerText = 'REJECTED';
-        updateMainCardUI(companies, 'REJECTED');
+        updateAllCardStatus(companies, 'REJECTED')
 
         parentNode.querySelector('.job-status').classList.remove('border-green-500')
         parentNode.querySelector('.job-status').classList.remove('text-green-500')
@@ -260,7 +241,7 @@ function renderInterveiw() {
 
 function renderReject() {
     filteredSection.innerHTML = '';
-     if (rejectedList.length == 0) {
+    if (rejectedList.length == 0) {
         emptyJobs.classList.remove('hidden')
         return;
     } else {
@@ -289,4 +270,15 @@ function renderReject() {
         `
         filteredSection.appendChild(div);
     }
+}
+
+function updateAllCardStatus(companyName, status) {
+    const allJobCards = allcard.querySelectorAll('.cards');
+
+    allJobCards.forEach(card => {
+        const name = card.querySelector('.companies').innerText;
+        if (name === companyName) {
+            card.querySelector('.job-status').innerText = status;
+        }
+    });
 }
